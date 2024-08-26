@@ -1,0 +1,53 @@
+﻿@model IEnumerable<lavajato.Models.Lavagem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLav)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorLav)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodCarro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodTipoLav)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLav)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorLav)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodTipoLav)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodLav">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CodLav">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CodLav">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
